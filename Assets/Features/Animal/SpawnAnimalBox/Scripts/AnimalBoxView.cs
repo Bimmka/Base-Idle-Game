@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Features.SpawnAnimalBox.Scripts
+namespace Features.Animal.SpawnAnimalBox.Scripts
 {
   public class AnimalBoxView : MonoBehaviour
   {

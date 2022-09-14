@@ -1,22 +1,23 @@
 using System;
-using Features.Services.Assets;
-using Features.SpawnAnimalBox.Data;
+using Features.Animal.Factory.Scripts;
+using Features.Animal.SpawnAnimalBox.Data;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
-namespace Features.SpawnAnimalBox.Scripts
+namespace Features.Animal.SpawnAnimalBox.Scripts
 {
     public class AnimalBox 
     {
         private readonly AnimalBoxSettings settings;
-        private readonly IAssetProvider assetProvider;
+        private readonly IAnimalFactory factory;
         private CompositeDisposable disposable = new CompositeDisposable();
 
         [Inject]
-        public AnimalBox(AnimalBoxSettings settings, IAssetProvider assetProvider)
+        public AnimalBox(AnimalBoxSettings settings, IAnimalFactory factory)
         {
             this.settings = settings;
-            this.assetProvider = assetProvider;
+            this.factory = factory;
         }
 
         public void StartSpawn()
@@ -28,14 +29,14 @@ namespace Features.SpawnAnimalBox.Scripts
                 .AddTo(disposable);
         }
 
-        public void Disable()
+        public void StopSpawn()
         {
             disposable.Dispose();
         }
 
         private void Spawn()
         {
-            assetProvider.Instantiate(settings.Prefab);
+            factory.Spawn(settings.Type, Vector3.zero, Quaternion.identity, null);
         }
     }
 }

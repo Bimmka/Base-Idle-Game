@@ -331,6 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxSettings: {fileID: 11400000, guid: e50ed9185cb1bad4da965784358a544a, type: 2}
   animalBoxView: {fileID: 7785895617069363491, guid: 2edf8ebf47338454c9693b042de95b24, type: 3}
+  factorySettings: {fileID: 11400000, guid: f9e04373d2e0f6e448e43aaf10944d6c, type: 2}
 --- !u!114 &1937150084
 MonoBehaviour:
   m_ObjectHideFlags: 0
